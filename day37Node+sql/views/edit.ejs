@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Name</title>
+</head>
+<body>
+
+    <h2>Edit name of account formed by <%= user.EMAIL %></h2>
+
+    <form action="/users/<%= user.ID %>?_method=PATCH" method="POST">
+        
+        <!-- method override -->
+        <input type="hidden" name="_method" value="PATCH">
+
+        <!-- username field -->
+        <input 
+            type="text" 
+            name="username" 
+            value="<%= user.USERNAME %>" 
+            required
+        >
+
+        <!-- optional password -->
+        <input 
+            type="password" 
+            name="password" 
+            placeholder="Enter password"
+        >
+
+        <button type="submit">Update Name</button>
+
+    </form>
+
+</body>
+</html>
